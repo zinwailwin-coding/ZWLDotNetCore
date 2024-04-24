@@ -70,9 +70,6 @@ namespace ZWLDotNetCore.ConsoleApp
 
             string message = result > 0 ? "Saving Successful" : "Saving Failed";
             Console.WriteLine(message);
-            
-
-
         }
 
 
