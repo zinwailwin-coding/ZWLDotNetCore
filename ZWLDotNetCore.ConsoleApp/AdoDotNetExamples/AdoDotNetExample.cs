@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 
-namespace ZWLDotNetCore.ConsoleApp
+namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
 {
     internal class AdoDotNetExample
     {
@@ -21,7 +21,7 @@ namespace ZWLDotNetCore.ConsoleApp
 
         public void Read()
         {
-           
+
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
 
             connection.Open();
@@ -49,7 +49,7 @@ namespace ZWLDotNetCore.ConsoleApp
             //Ado.Net Read
         }
 
-        public void Create(string title, string author, string content) 
+        public void Create(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -65,7 +65,7 @@ namespace ZWLDotNetCore.ConsoleApp
             cmd.Parameters.AddWithValue("@BlogTitle", title);
             cmd.Parameters.AddWithValue("@BlogAuthor", author);
             cmd.Parameters.AddWithValue("@BlogContent", content);
-            int result= cmd.ExecuteNonQuery();
+            int result = cmd.ExecuteNonQuery();
             connection.Close();
 
             string message = result > 0 ? "Saving Successful" : "Saving Failed";
@@ -73,7 +73,7 @@ namespace ZWLDotNetCore.ConsoleApp
         }
 
 
-        public void Update(int id, string title, string author, string content) 
+        public void Update(int id, string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -94,7 +94,7 @@ namespace ZWLDotNetCore.ConsoleApp
             Console.WriteLine(message);
         }
 
-        public void Delete(int id) 
+        public void Delete(int id)
         {
             SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
             connection.Open();
@@ -122,7 +122,7 @@ namespace ZWLDotNetCore.ConsoleApp
             sqlDataAdapter.Fill(dt);
 
             connection.Close();
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No data found");
                 return;
@@ -133,7 +133,7 @@ namespace ZWLDotNetCore.ConsoleApp
             datarow => datacolumn*/
 
             DataRow dr = dt.Rows[0];
-            
+
             Console.WriteLine("Blog Id => " + dr["BlogId"]);
             Console.WriteLine("Blog Title => " + dr["BlogTitle"]);
             Console.WriteLine("Blog Author => " + dr["BlogAuthor"]);

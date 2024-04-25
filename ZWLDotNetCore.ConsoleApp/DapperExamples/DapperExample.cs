@@ -7,8 +7,10 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using ZWLDotNetCore.ConsoleApp.Dtos;
+using ZWLDotNetCore.ConsoleApp.Services;
 
-namespace ZWLDotNetCore.ConsoleApp
+namespace ZWLDotNetCore.ConsoleApp.DapperExamples
 {
     internal class DapperExample
     {
@@ -24,9 +26,9 @@ namespace ZWLDotNetCore.ConsoleApp
 
         private void Read()
         {
-          using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-          List<BlogDto> lst=  db.Query<BlogDto>("select * from tbl_blog").ToList();
-            foreach (BlogDto blog in lst) 
+            using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+            List<BlogDto> lst = db.Query<BlogDto>("select * from tbl_blog").ToList();
+            foreach (BlogDto blog in lst)
             {
                 Console.WriteLine(blog.BlogId);
                 Console.WriteLine(blog.BlogTitle);
@@ -40,7 +42,7 @@ namespace ZWLDotNetCore.ConsoleApp
         {
             using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
             var blog = db.Query<BlogDto>("select * from tbl_blog where blogid=@BlogId", new BlogDto { BlogId = id }).FirstOrDefault();
-            if(blog is null)
+            if (blog is null)
             {
                 Console.WriteLine("Data not found");
                 return;
@@ -68,11 +70,11 @@ namespace ZWLDotNetCore.ConsoleApp
            ,@BlogAuthor
            ,@BlogContent)";
             using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-            int result= db.Execute(query,blog);
+            int result = db.Execute(query, blog);
             string message = result > 0 ? "Saving Successful" : "Saving Failed";
             Console.WriteLine(message);
         }
-        private void Update(int id,string title, string author, string content)
+        private void Update(int id, string title, string author, string content)
         {
             var blog = new BlogDto()
             {

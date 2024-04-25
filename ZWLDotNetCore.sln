@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.RestAPI", "ZWLDotNetCore.RestAPI\ZWLDotNetCore.RestAPI.csproj", "{BF2F1567-883A-4CB1-92B2-B06EFC46AA9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{46A59075-E396-4BEF-A36B-95C289849B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46A59075-E396-4BEF-A36B-95C289849B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46A59075-E396-4BEF-A36B-95C289849B48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2F1567-883A-4CB1-92B2-B06EFC46AA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2F1567-883A-4CB1-92B2-B06EFC46AA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2F1567-883A-4CB1-92B2-B06EFC46AA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2F1567-883A-4CB1-92B2-B06EFC46AA9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

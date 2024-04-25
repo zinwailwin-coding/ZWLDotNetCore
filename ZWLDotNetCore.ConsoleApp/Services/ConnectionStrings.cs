@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZWLDotNetCore.ConsoleApp
+namespace ZWLDotNetCore.ConsoleApp.Services
 {
     internal static class ConnectionStrings
     {
@@ -22,6 +22,6 @@ namespace ZWLDotNetCore.ConsoleApp
             //UserID = "sa",
             //Password = "sa@123"
         };
-        
+
     }
 }
