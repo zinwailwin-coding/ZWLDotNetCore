@@ -119,10 +119,10 @@ namespace ZWLDotNetCore.RestAPI.Controllers
 
         private BlogModel findById(int id)
         {
-            string query = "select * from tbl_blog where blogid=@BlogId";
+            string query = "select * from tbl_blog where BlogId=@BlogId";
             using IDbConnection db = new SqlConnection(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
             var blog = db.Query<BlogModel>(query, new BlogModel { BlogId = id }).FirstOrDefault();
-            return blog;
+            return blog!;
         }
     }
 }
