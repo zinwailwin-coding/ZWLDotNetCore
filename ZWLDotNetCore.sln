@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.ConsoleAppHtt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.ConsoleAppRestClientExamples", "ZWLDotNetCore.ConsoleAppRestClientExamples\ZWLDotNetCore.ConsoleAppRestClientExamples.csproj", "{C0ADF662-3EEA-4C79-956E-4536ECC6FFA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.ConsoleAppHttpClient", "ZWLDotNetCore.ConsoleAppHttpClient\ZWLDotNetCore.ConsoleAppHttpClient.csproj", "{6663EB69-3127-4616-AA42-6F21B74DDBF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C0ADF662-3EEA-4C79-956E-4536ECC6FFA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0ADF662-3EEA-4C79-956E-4536ECC6FFA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0ADF662-3EEA-4C79-956E-4536ECC6FFA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6663EB69-3127-4616-AA42-6F21B74DDBF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6663EB69-3127-4616-AA42-6F21B74DDBF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6663EB69-3127-4616-AA42-6F21B74DDBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6663EB69-3127-4616-AA42-6F21B74DDBF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
