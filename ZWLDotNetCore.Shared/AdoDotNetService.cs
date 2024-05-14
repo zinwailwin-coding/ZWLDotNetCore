@@ -60,8 +60,14 @@ namespace ZWLDotNetCore.Shared
 
             string json = JsonConvert.SerializeObject(dt);
             List<T> result = JsonConvert.DeserializeObject<List<T>>(json)!;
-            return result[0];
-
+            if (result != null && result.Count > 0)
+            {
+                return result[0];
+            }
+            else
+            {
+               return default(T);
+            }
         }
 
         public int Execute(string query, params AdoDotNetParameters[] param)
