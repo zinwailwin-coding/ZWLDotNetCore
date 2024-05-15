@@ -75,3 +75,32 @@ public class OrderDetailModel
 }
 
 
+public class PizzaOrderModel
+{
+    public int OrderId { get; set; }
+    public string InvoiceNo { get; set; }
+    public int PizzaId { get; set; }
+    public decimal TotalPrice { get; set; }
+    public string PizzaName { get; set; }
+    public decimal Price { get; set; }
+
+}
+
+public class PizzaOrderDetailModel
+{
+    public int OrderDetailId { get; set; }
+    public string InvoiceNo { get; set; }
+    public int ExtraPizzaId { get; set; }
+    public string ExtraPizzaName { get; set; }
+    public decimal Price { get; set; }
+
+}
+
+public class PizzaOrderResponse
+{
+    public PizzaOrderModel pizzaOrder { get; set; }
+    public List<PizzaOrderDetailModel> pizzaOrderDetail { get; set; }
+}
+
+
+

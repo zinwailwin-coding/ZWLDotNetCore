@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ZWLDotNetCore.PizzaApi.Db;
+using ZWLDotNetCore.PizzaApi.Queries;
+using ZWLDotNetCore.Shared;
 
 namespace ZWLDotNetCore.PizzaApi.Features.Pizza
 {
@@ -10,9 +12,11 @@ namespace ZWLDotNetCore.PizzaApi.Features.Pizza
     public class PizzaController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly DapperService _dapperService;
         public PizzaController()
         {
             _context = new AppDbContext();
+            _dapperService = new DapperService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
         }
 
         [HttpGet]
@@ -64,16 +68,38 @@ namespace ZWLDotNetCore.PizzaApi.Features.Pizza
         }
 
 
+        //[HttpGet("Order/{invoiceNo}")]
+        //public async Task<IActionResult> GetOrderDetail(string invoiceNo)
+        //{
+        //    var order= await _context.Orders.FirstOrDefaultAsync(x=>x.InvoiceNo == invoiceNo);
+        //    var orderDetail = await _context.OrderDetails.Where(x=>x.InvoiceNo==invoiceNo).ToListAsync();
+        //    return Ok(new
+        //    {
+        //        Order = order,
+        //        OrderDetail = orderDetail
+        //    });
+        //}
         [HttpGet("Order/{invoiceNo}")]
-        public async Task<IActionResult> GetOrderDetail(string invoiceNo)
+        public IActionResult GetOrderDetail(string invoiceNo)
         {
-            var order= await _context.Orders.FirstOrDefaultAsync(x=>x.InvoiceNo == invoiceNo);
-            var orderDetail = await _context.OrderDetails.Where(x=>x.InvoiceNo==invoiceNo).ToListAsync();
-            return Ok(new
+            var item = _dapperService.QueryFirstOrDefault<PizzaOrderModel>
+                (
+                    PizzaQuery.orderQuery,
+                    new {invoiceNo=invoiceNo}
+                );
+            var itemDetail = _dapperService.Query<PizzaOrderDetailModel>
+                ( 
+                    PizzaQuery.orderDetailQuery,
+
+                    new { invoiceNo = invoiceNo }
+                );
+
+            var response = new PizzaOrderResponse()
             {
-                Order = order,
-                OrderDetail = orderDetail
-            });
+                pizzaOrder = item,
+                pizzaOrderDetail = itemDetail
+            };
+            return Ok(response);
         }
     }
 }
