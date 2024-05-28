@@ -41,7 +41,7 @@ namespace ZWLDotNetCore.RestAPI.Controllers
            ([BlogTitle]
            ,[BlogAuthor]
            ,[BlogContent])
-     VALUES
+            VALUES
            (@BlogTitle
            ,@BlogAuthor
            ,@BlogContent)";

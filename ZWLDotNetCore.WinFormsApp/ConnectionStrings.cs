@@ -1,11 +1,11 @@
 ﻿using System.Data.SqlClient;
 
-namespace ZWLDotNetCore.RestApiWithNLayer
+namespace ZWLDotNetCore.WinFormsApp
 {
     internal static class ConnectionStrings
     {
 
-        public static SqlConnectionStringBuilder SqlConnectionStringBuilder = new SqlConnectionStringBuilder()
+        public static SqlConnectionStringBuilder sqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
             DataSource = "DHO-LP-23-006\\SQLSERVER2022",
             InitialCatalog = "DotNetTrainging4",

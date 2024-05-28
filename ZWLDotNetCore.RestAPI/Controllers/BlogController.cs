@@ -81,5 +81,6 @@ namespace ZWLDotNetCore.RestAPI.Controllers
             string message = result > 0 ? "Delete Successful" : "Delete Failed";
             return Ok(message);
         }
+      
     }
 }

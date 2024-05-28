@@ -46,7 +46,7 @@ namespace ZWLDotNetCore.RestAPI.Controllers
 
             connection.Open();
             SqlCommand cmd = new SqlCommand(query, connection);
-            cmd.Parameters.AddWithValue("@BlogId", id);
+            cmd.Parameters.AddWithValue("@BlogId", id); 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             sqlDataAdapter.Fill(dt);
