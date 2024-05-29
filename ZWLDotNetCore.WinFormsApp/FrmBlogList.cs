@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,8 +26,68 @@ namespace ZWLDotNetCore.WinFormsApp
 
         private void FrmBlogList_Load(object sender, EventArgs e)
         {
-            List<BlogModel> lst= _dapperService.Query<BlogModel>(BlogQuery.BlogList);
-            dgvData.DataSource=lst;
+            BlogList();
+        }
+        private void BlogList()
+        {
+            List<BlogModel> lst = _dapperService.Query<BlogModel>(BlogQuery.BlogList);
+            dgvData.DataSource = lst;
+        }
+
+        private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //var columnIndex = e.ColumnIndex;
+            //var colRow = e.RowIndex;
+            if (e.RowIndex == -1) return;
+            int blogId = Convert.ToInt32(dgvData.Rows[e.RowIndex].Cells["colId"].Value);
+            //#region If Else
+            //if (e.ColumnIndex == (int)EnumFormControlType.Edit) 
+            //{
+            //    FrmBlog frmBlog = new FrmBlog(blogId);
+            //    frmBlog.ShowDialog();
+            //    BlogList();
+            //}
+            //else if (e.ColumnIndex == (int)EnumFormControlType.Delete)
+            //{
+            //    var dialogResult = MessageBox.Show("Are you sure want t delete?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (dialogResult != DialogResult.Yes) return;
+
+            //    DeleteBlog(blogId);
+            //    BlogList();
+            //}
+            //#endregion
+
+            #region Switch Case
+            int index =e.ColumnIndex;
+            EnumFormControlType enumFormControlType = (EnumFormControlType)index;
+            switch (enumFormControlType)
+            {
+                case EnumFormControlType.Edit:
+                    FrmBlog frmBlog = new FrmBlog(blogId);
+                    frmBlog.ShowDialog();
+                    BlogList();
+                    break; 
+                case EnumFormControlType.Delete:
+                    var dialogResult = MessageBox.Show("Are you sure want t delete?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult != DialogResult.Yes) return;
+
+                    DeleteBlog(blogId);
+                    BlogList();
+                    break; 
+                case EnumFormControlType.None:
+                default:
+                    MessageBox.Show("");
+                    break;
+            }
+            #endregion
+        }
+
+        private void DeleteBlog(int id)
+        {
+            string query = @"delete from Tbl_Blog where BlogId=@BlogId";
+            int result = _dapperService.Execute(query, new { BlogId = @id });
+            string message = result > 0 ? "Delete Successful" : "Delete Failed";
+            MessageBox.Show(message);
         }
     }
 }
