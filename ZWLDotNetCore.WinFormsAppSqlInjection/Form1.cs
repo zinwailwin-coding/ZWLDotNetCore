@@ -35,7 +35,6 @@ namespace ZWLDotNetCore.WinFormsAppSqlInjection
             MessageBox.Show("Is Admin: " + model.Email); 
         }
     }
-
     public class UserModel
     {
         public string Email { get; set; }
