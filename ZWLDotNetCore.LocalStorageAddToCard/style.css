@@ -1,0 +1,45 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+.product {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+.cart {
+    margin-top: 20px;
+    padding: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    /* text-align: center; */
+}
+.receipt {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+#totalPrice, #receiptTotalPrice{
+    text-align: right;
+}
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+.quantity-button {
+    border: none;
+    padding: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
