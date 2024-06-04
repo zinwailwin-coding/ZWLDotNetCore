@@ -119,10 +119,18 @@ $('#btnSave').click(function () {
 })
 
 function successMessage(message) {
-    alert(message);
+    Swal.fire({
+        title: "Success!",
+        text: message,
+        icon: "success"
+    });
 }
 function erroerMessage(message) {
-    alert(message);
+    Swal.fire({
+        title: "Fail!",
+        text: message,
+        icon: "error"
+    });
 }
 
 function clear() {
