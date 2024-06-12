@@ -7,16 +7,23 @@ using ZWLDotNetCore.ConsoleApp.Dtos;
 
 namespace ZWLDotNetCore.ConsoleApp.EFCoreExamples
 {
-    internal class EFCoreExample
+    public class EFCoreExample
     {
-        private readonly AppDbContext db = new AppDbContext();
+        //private readonly AppDbContext db = new AppDbContext();
+        private readonly AppDbContext db;
+
+        public EFCoreExample(AppDbContext db)
+        {
+            this.db = db;
+        }
+
         public void Run()
         {
-            //Read();
+            Read();
             // Edit(2002);
             //Create("Harry Potter", "JK Rolling", "Horror");
             //Update(2003, "Harry Potter", "JK Rolling", "Supernatural");
-            Delete(2003);
+            //Delete(2003);
         }
         private void Read()
         {

@@ -12,8 +12,15 @@ namespace ZWLDotNetCore.RestAPI.Controllers
     [ApiController]
     public class BlogAdoDotNet2Controller : ControllerBase
     {
-        private readonly AdoDotNetService _doDotNetService = new AdoDotNetService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
-        
+        // private readonly AdoDotNetService _doDotNetService = new AdoDotNetService(ConnectionStrings.SqlConnectionStringBuilder.ConnectionString);
+        //using Depedency Injection
+        private readonly AdoDotNetService _doDotNetService;
+
+        public BlogAdoDotNet2Controller(AdoDotNetService doDotNetService)
+        {
+            _doDotNetService = doDotNetService;
+        }
+
         [HttpGet]
         public IActionResult GetBlogs()
         {
