@@ -1,0 +1,26 @@
+﻿@model List<BlogModel>
+@{
+    ViewBag.Title = "Blog";
+    int count = 0;
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <td>No.</td>
+            <td>Title</td>
+            <td>Author</td>
+            <td>Content</tr>
+    </thead>
+    <tbody>
+        @foreach(BlogModel blog in Model)
+        {
+            <tr>
+                <td>@(++count)</td>
+                <td>@blog.BlogTitle</td>
+                <td>@blog.BlogAuthor</td>
+                <td>@blog.BlogContent</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZWLDotNetCore.WinFormsApp",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZWLDotNetCore.WinFormsAppSqlInjection", "ZWLDotNetCore.WinFormsAppSqlInjection\ZWLDotNetCore.WinFormsAppSqlInjection.csproj", "{A960878A-EAEF-4985-B9D4-CD2BC0247EF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.MinimalApi", "ZWLDotNetCore.MinimalApi\ZWLDotNetCore.MinimalApi.csproj", "{1BE99B8F-530D-4E05-84EE-348F91BD8C00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZWLDotNetCore.MinimalApi", "ZWLDotNetCore.MinimalApi\ZWLDotNetCore.MinimalApi.csproj", "{1BE99B8F-530D-4E05-84EE-348F91BD8C00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.MvcApp", "ZWLDotNetCore.MvcApp\ZWLDotNetCore.MvcApp.csproj", "{B3BC30AC-6A52-4EF3-9BC1-EF8F0A03B94F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{1BE99B8F-530D-4E05-84EE-348F91BD8C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE99B8F-530D-4E05-84EE-348F91BD8C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BE99B8F-530D-4E05-84EE-348F91BD8C00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BC30AC-6A52-4EF3-9BC1-EF8F0A03B94F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BC30AC-6A52-4EF3-9BC1-EF8F0A03B94F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BC30AC-6A52-4EF3-9BC1-EF8F0A03B94F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BC30AC-6A52-4EF3-9BC1-EF8F0A03B94F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
