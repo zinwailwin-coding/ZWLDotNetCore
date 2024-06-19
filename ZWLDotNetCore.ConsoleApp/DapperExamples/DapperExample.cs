@@ -1,5 +1,4 @@
-﻿using Dapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 using ZWLDotNetCore.ConsoleApp.Dtos;
 using ZWLDotNetCore.ConsoleApp.Services;
 
@@ -48,7 +48,11 @@ namespace ZWLDotNetCore.ConsoleApp.DapperExamples
         private void Edit(int id)
         {
             using IDbConnection db = new SqlConnection(_connectionStringBuilder.ConnectionString);
-            var blog = db.Query<BlogDto>("select * from tbl_blog where blogid=@BlogId", new BlogDto { BlogId = id }).FirstOrDefault();
+            var blog = db.Query<BlogDto>(
+                    "select * from tbl_blog where blogid=@BlogId",
+                    new BlogDto { BlogId = id }
+                )
+                .FirstOrDefault();
             if (blog is null)
             {
                 Console.WriteLine("Data not found");
@@ -68,7 +72,8 @@ namespace ZWLDotNetCore.ConsoleApp.DapperExamples
                 BlogAuthor = author,
                 BlogContent = content
             };
-            string query = @"INSERT INTO [dbo].[Tbl_Blog]
+            string query =
+                @"INSERT INTO [dbo].[Tbl_Blog]
            ([BlogTitle]
            ,[BlogAuthor]
            ,[BlogContent])
@@ -81,6 +86,7 @@ namespace ZWLDotNetCore.ConsoleApp.DapperExamples
             string message = result > 0 ? "Saving Successful" : "Saving Failed";
             Console.WriteLine(message);
         }
+
         private void Update(int id, string title, string author, string content)
         {
             var blog = new BlogDto()
@@ -90,7 +96,8 @@ namespace ZWLDotNetCore.ConsoleApp.DapperExamples
                 BlogAuthor = author,
                 BlogContent = content
             };
-            string query = @"UPDATE [dbo].[Tbl_Blog]
+            string query =
+                @"UPDATE [dbo].[Tbl_Blog]
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
@@ -103,10 +110,7 @@ namespace ZWLDotNetCore.ConsoleApp.DapperExamples
 
         private void Delete(int id)
         {
-            var blog = new BlogDto()
-            {
-                BlogId = id
-            };
+            var blog = new BlogDto() { BlogId = id };
             string query = @"delete from Tbl_Blog where BlogId=@BlogId";
             using IDbConnection db = new SqlConnection(_connectionStringBuilder.ConnectionString);
             int result = db.Execute(query, blog);

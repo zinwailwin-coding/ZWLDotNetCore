@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using System.Reflection.Metadata;
 
 namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
 {
@@ -28,8 +28,9 @@ namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
 
         public void Read()
         {
-
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(
+                _sqlConnectionStringBuilder.ConnectionString
+            );
 
             connection.Open();
 
@@ -58,9 +59,12 @@ namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
 
         public void Create(string title, string author, string content)
         {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(
+                _sqlConnectionStringBuilder.ConnectionString
+            );
             connection.Open();
-            string query = @"INSERT INTO [dbo].[Tbl_Blog]
+            string query =
+                @"INSERT INTO [dbo].[Tbl_Blog]
            ([BlogTitle]
            ,[BlogAuthor]
            ,[BlogContent])
@@ -79,12 +83,14 @@ namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
             Console.WriteLine(message);
         }
 
-
         public void Update(int id, string title, string author, string content)
         {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(
+                _sqlConnectionStringBuilder.ConnectionString
+            );
             connection.Open();
-            string query = @"UPDATE [dbo].[Tbl_Blog]
+            string query =
+                @"UPDATE [dbo].[Tbl_Blog]
    SET [BlogTitle] = @BlogTitle
       ,[BlogAuthor] = @BlogAuthor
       ,[BlogContent] = @BlogContent
@@ -103,7 +109,9 @@ namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
 
         public void Delete(int id)
         {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(
+                _sqlConnectionStringBuilder.ConnectionString
+            );
             connection.Open();
             string query = @"delete from Tbl_Blog where BlogId=@BlogId";
             SqlCommand cmd = new SqlCommand(query, connection);
@@ -117,7 +125,9 @@ namespace ZWLDotNetCore.ConsoleApp.AdoDotNetExamples
 
         public void Edit(int id)
         {
-            SqlConnection connection = new SqlConnection(_sqlConnectionStringBuilder.ConnectionString);
+            SqlConnection connection = new SqlConnection(
+                _sqlConnectionStringBuilder.ConnectionString
+            );
 
             connection.Open();
 
