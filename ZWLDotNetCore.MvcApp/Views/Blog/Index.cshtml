@@ -8,15 +8,21 @@
 <table class="table table-responsive">
     <thead>
         <tr>
-            <td>No.</td>
-            <td>Title</td>
-            <td>Author</td>
-            <td>Content</tr>
+            <th></th>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Content</th>
+            </tr>
     </thead>
     <tbody>
         @foreach(BlogModel blog in Model)
         {
             <tr>
+                <td>
+                    <a href="/Blog/Edit/@blog.BlogId" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@blog.BlogId" class="btn btn-danger">Delete</a>
+                </td>
                 <td>@(++count)</td>
                 <td>@blog.BlogTitle</td>
                 <td>@blog.BlogAuthor</td>
