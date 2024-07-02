@@ -1,0 +1,62 @@
+﻿@model List<BlogModel>
+@{
+    ViewBag.Title = "Blog";
+    int count = 0;
+}
+<a href="/Blog/Create" class="btn btn-success">New</a>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th></th>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (BlogModel blog in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/Blog/Edit/@blog.BlogId" class="btn btn-warning">Edit</a>
+                    <button data-id="@blog.BlogId" class="btn btn-danger btn-delete">Delete</button>
+                </td>
+                <td>@(++count)</td>
+                <td>@blog.BlogTitle</td>
+                <td>@blog.BlogAuthor</td>
+                <td>@blog.BlogContent</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $('.btn-delete').click(function () {
+            const isConfirm = confirm("Are you sure want to delete?");
+            if (!isConfirm) return;
+
+            const id = $(this).data('id'); 
+            $.ajax({
+                type: 'Get',
+                url: '/Blog/Delete',
+                data: { id: id },
+                dataType: "JSON",
+                success: function (result) {
+                    const message = result.Message;
+                    if (!result.IsSuccess) {
+                        alert(message);
+                        return;
+                    }
+                    alert(message);
+                    location.href = "/Blog/Index";
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error", xhr, status, error);
+                }
+            })
+        })
+    </script>
+}
