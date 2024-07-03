@@ -35,7 +35,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZWLDotNetCore.MinimalApi", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZWLDotNetCore.MvcApp", "ZWLDotNetCore.MvcApp\ZWLDotNetCore.MvcApp.csproj", "{B3BC30AC-6A52-4EF3-9BC1-EF8F0A03B94F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.MVCApp2", "ZWLDotNetCore.MVCApp2\ZWLDotNetCore.MVCApp2.csproj", "{88A2D040-843E-4398-AE77-24F51E811A9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZWLDotNetCore.MVCApp2", "ZWLDotNetCore.MVCApp2\ZWLDotNetCore.MVCApp2.csproj", "{88A2D040-843E-4398-AE77-24F51E811A9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZWLDotNetCore.MvcChartApp", "ZWLDotNetCore.MvcChartApp\ZWLDotNetCore.MvcChartApp.csproj", "{8620D49B-091E-41DC-AAB8-4C343EB52F36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{88A2D040-843E-4398-AE77-24F51E811A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88A2D040-843E-4398-AE77-24F51E811A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88A2D040-843E-4398-AE77-24F51E811A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8620D49B-091E-41DC-AAB8-4C343EB52F36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8620D49B-091E-41DC-AAB8-4C343EB52F36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8620D49B-091E-41DC-AAB8-4C343EB52F36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8620D49B-091E-41DC-AAB8-4C343EB52F36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
